@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Home Section -->
+<section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold text-white mb-4 animate-fade-in">Welcome to My Portfolio</h1>
+        <p class="text-xl text-white mb-6">I’m a passionate developer creating innovative solutions.😎</p>
+        <a href="#projects" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+            View Projects
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="about">
+    <div class="text-center mb-8">
+    </div>
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Learn more about my journey and skills.</p>
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2">
+            <img src="{% static 'img/srijan10.jpg' %}" alt="Profile" class="rounded-lg shadow-lg">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-lg text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
+                I am a BCA student with a solid understanding of programming, software development, and database management. 
+                I enjoy solving real-world problems using technology and building efficient solutions. 
+                I am actively seeking an entry-level role or internship to apply my skills, contribute to innovative projects, 
+                and grow as a competent IT professional.
+            </p>
+
+            <div class="mt-6">
+                <p class="text-lg text-gray-700 dark:text-gray-300 font-semibold mb-2">Skills:</p>
+                <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 space-y-1 pl-4 text-justify">
+                    <li><strong>Programming Languages:</strong> Python, Java, C</li>
+                    <li><strong>Frameworks & Libraries:</strong> Django, Flask</li>
+                    <li><strong>Databases:</strong> MongoDB, MySQL</li>
+                    <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap</li>
+                    <li><strong>Tools & Technologies:</strong> Git, GitHub, Data Structures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="projects">
+    <h2 class="text-3xl font-bold mb-6">My Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for project in projects %}
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
+                <img src="{{ project.project.image }}" alt="{{ project.project.title }}" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">{{ project.project.title }}</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.project.description }}</p>
+                    <a href="{{ project.project.link }}" class="text-blue-500 hover:underline">View Project on github</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

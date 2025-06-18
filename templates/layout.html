@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <a href="/" class="flex-shrink-0 flex items-center text-2xl font-bold">SRIJAN RAY</a>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
+                    <a href="/" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Home</a>
+                    <a href="#about" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">About</a>
+                    <a href="#projects" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Projects</a>
+                    <a href="/contact" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Contact</a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button id="menu-toggle" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path id="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path id="menu-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
+                <a href="/contact" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-16">
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                {% for message in messages %}
+                    <div class="bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200 p-4 rounded mb-4">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="bg-white dark:bg-gray-800 shadow mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 dark:text-gray-400">&copy; 2024 SRIJAN. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/Scripts.js' %}"></script>
+</body>
+</html>
