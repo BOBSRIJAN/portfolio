@@ -18,7 +18,7 @@ def contact(request):
 
 
 def admin_panel(request):
-    return render(request, 'app/AdminPanel.html')
+    return render(request, 'app/admin/AdminPanel.html')
 
 def admin_projects(request):
     if request.method == 'POST':
@@ -48,15 +48,11 @@ def admin_projects(request):
     
     # projects = ProjectDocument.objects.all()
     projects = dbconf.projects.find()
-    return render(request, 'app/AdminProjects.html', {'projects': projects})
+    return render(request, 'app/admin/AdminProjects.html', {'projects': projects})
 
 
 def admin_contacts(request):
     contacts = dbconf.Contact.find()
-    return render(request, 'app/AdminContacts.html', {'contacts': contacts})
+    return render(request, 'app/admin/AdminContacts.html', {'contacts': contacts})
 
 
-def delete_project(request, id):
-    # ProjectDocument.objects.filter(id=ObjectId(id)).delete()
-    # messages.success(request, 'Project deleted successfully!')
-    return redirect('admin_projects')
