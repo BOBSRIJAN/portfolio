@@ -26,9 +26,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]  
+ALLOWED_HOSTS = ['https://srijan-dev.onrender.com/','localhost', '127.0.0.1',]  
 
-
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://srijan-dev.onrender.com/',
+]
 # Application definition
 
 INSTALLED_APPS = [
