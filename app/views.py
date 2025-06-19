@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from . import dbconf
 from django.contrib import messages
 from bson import ObjectId
+from datetime import datetime
 # Create your views here.
 
 def home(request):
@@ -13,7 +14,18 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-
+        if name and email and message:
+            contact_data = {
+                'id': str(ObjectId()),
+                'name': name,
+                'email': email,
+                'message': message,
+                'timestamp': datetime.now()
+            }
+            dbconf.Contact.insert_one(contact_data)
+            messages.success(request, 'Your message has been sent successfully!')
+        else:
+            messages.error(request, 'Please fill out all fields.')
     return render(request, 'app/contact.html')
 
 

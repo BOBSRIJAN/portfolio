@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+        {% block navPc %}
+            <a href="/" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Home</a>
+            <a href="/#about" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">About</a>
+            <a href="/#projects" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Projects</a>
+            <a href="/contact" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Contact</a>
+        {% endblock %}
+        {% block navPhone %}
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="/#about" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
+                <a href="/#projects" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
+                <a href="/contact" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        {% endblock %}
+{% block content %}
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+        <form method="POST" class="max-w-lg mx-auto">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                <input type="text" name="name" id="name" class="mt-1 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                <input type="email" name="email" id="email" class="mt-1 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                <textarea name="message" id="message" rows="4" class="mt-1 p-2 w-full border rounded-md dark:bg-gray-700 dark:border-gray-600" required></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">Send Message</button>
+        </form>
+    </section>
+{% endblock %}
