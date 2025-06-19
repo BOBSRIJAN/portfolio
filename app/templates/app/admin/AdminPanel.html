@@ -19,7 +19,7 @@
                 <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
                     <a href="/custom-admin/projects" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Projects</a>
                     <a href="/custom-admin/contacts" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Contacts</a>
-                    <a href="/admin/logout/" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Logout</a>
+                    <a href="/" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Logout</a>
                 </div>
                 <div class="-mr-2 flex items-center sm:hidden">
 
@@ -53,11 +53,19 @@
         {% block content %}
         <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a href="/custom-admin/projects" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <h2 class="text-xl font-semibold mb-2">Manage Projects</h2>
-                <p class="text-gray-600 dark:text-gray-400">Add, update, or delete portfolio projects.</p>
+            <a href="{% url 'admin_projects' %}" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <h2 class="text-xl font-semibold mb-2">Add Projects</h2>
+                <p class="text-gray-600 dark:text-gray-400">Add projects to portfolio.</p>
             </a>
-            <a href="/custom-admin/contacts" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+            <a href= "{% url 'admin_project_edit' %}" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <h2 class="text-xl font-semibold mb-2">Edit project</h2>
+                <p class="text-gray-600 dark:text-gray-400">See all Existing project's</p>
+            </a> 
+            <a href="{% url 'admin_project_delete' %}" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <h2 class="text-xl font-semibold mb-2">Delete project</h2>
+                <p class="text-gray-600 dark:text-gray-400">See all project's</p>
+            </a>
+            <a href="{% url 'admin_contacts' %}" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                 <h2 class="text-xl font-semibold mb-2">View Contacts</h2>
                 <p class="text-gray-600 dark:text-gray-400">See all contact form submissions.</p>
             </a>

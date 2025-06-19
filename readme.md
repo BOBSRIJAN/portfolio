@@ -1,5 +1,5 @@
 # Portfolio Django Project
-under dev!
+under devlopment!!!!
 ## Project Description
 This is a Django web application that serves as a personal portfolio website. It features a home page, a contact form, and a custom admin panel for managing projects and contact messages. The backend uses MongoDB for data storage, accessed via pymongo. The admin panel allows for managing project entries and viewing contact submissions.
 
