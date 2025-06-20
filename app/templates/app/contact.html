@@ -2,22 +2,20 @@
 {% load static %}
 {% block title %}Contact{% endblock %}
         {% block navPc %}
-            <a href="/" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Home</a>
-            <a href="/#about" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">About</a>
-            <a href="/#projects" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Projects</a>
-            <a href="/contact" class="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 rounded">Contact</a>
+          <a href="/" class="hover:text-blue-500">Home</a>
+          <a href="/#about" class="hover:text-blue-500">About</a>
+          <a href="/#projects" class="hover:text-blue-500">Projects</a>
+          <a href="/contact" class="hover:text-blue-500">Contact</a>
         {% endblock %}
         {% block navPhone %}
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="/" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
-                <a href="/#about" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
-                <a href="/#projects" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
-                <a href="/contact" class="block px-3 py-2 text-base font-medium hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
-            </div>
+        <a href="/" class="block text-gray-800 dark:text-gray-200 hover:text-blue-500">Home</a>
+        <a href="/#about" class="block text-gray-800 dark:text-gray-200 hover:text-blue-500">About</a>
+        <a href="/#projects" class="block text-gray-800 dark:text-gray-200 hover:text-blue-500">Projects</a>
+        <a href="/contact" class="block text-gray-800 dark:text-gray-200 hover:text-blue-500">Contact</a>
         {% endblock %}
 {% block content %}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+    <section class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">Contact Me</h2>
         <form method="POST" class="max-w-lg mx-auto">
             {% csrf_token %}
             <div class="mb-4">

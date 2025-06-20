@@ -2,21 +2,36 @@
 {% load static %}
 {% block content %}
 
-<!-- Hero Section -->
+<!-- home Section -->
 <section class="h-screen flex items-center justify-center relative z-20">
-    <div class="text-center px-4">
+    <div class="text-center px-4 -mt-32">
         <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in">Welcome to My Portfolio</h1>
         <p class="text-xl md:text-2xl text-white mb-6">I’m a passionate developer creating innovative solutions. 😎</p>
+        
         <a href="#projects" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
             View Projects
         </a>
+        <div class="mt-8 flex justify-center gap-6 text-white text-2xl">
+            <a href="https://github.com/BOBSRIJAN" target="_blank" class="hover:text-gray-400 transition">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/srijan-ray-5b1967282/" target="_blank" class="hover:text-blue-400 transition">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/srijan.ray.33" target="_blank" class="hover:text-blue-500 transition">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://discord.com/users/srijan_ray" target="_blank" class="hover:text-indigo-400 transition">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
     </div>
 </section>
 
 <!-- About Section -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="about">
-    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Learn more about my journey and skills.</p>
+    <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">About Me</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mt-2 text-center">Learn more about my journey and skills.</p>
     <div class="flex flex-col md:flex-row items-center mt-6 gap-6">
         <div class="md:w-1/2">
             <img src="{% static 'img/srijan10.jpg' %}" alt="Profile" class="rounded-lg shadow-lg">
@@ -28,31 +43,50 @@
                 I am actively seeking an entry-level role or internship to apply my skills, contribute to innovative projects,
                 and grow as a competent IT professional.
             </p>
-
-            <div class="mt-6">
-                <p class="text-lg text-gray-700 dark:text-gray-300 font-semibold mb-2">Skills:</p>
-                <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 space-y-1 pl-4 text-justify">
-                    <li><strong>Programming Languages:</strong> Python, Java, C</li>
-                    <li><strong>Frameworks & Libraries:</strong> Django, Flask</li>
-                    <li><strong>Databases:</strong> MongoDB, MySQL</li>
-                    <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap</li>
-                    <li><strong>Tools & Technologies:</strong> Git, GitHub, Data Structures</li>
-                </ul>
+            <div class="mt-10 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                <i class="fas fa-code text-blue-600"></i> Skills
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <div>
+                    <h3 class="font-semibold mb-1">👨‍💻 Programming Languages</h3>
+                    <p>Python, Java, C</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-1">📚 Frameworks & Libraries</h3>
+                    <p>Django, Flask</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-1">🗄️ Databases</h3>
+                    <p>MongoDB, MySQL</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-1">🌐 Web Technologies</h3>
+                    <p>HTML, CSS, Bootstrap</p>
+                </div>
+                <div class="sm:col-span-2">
+                    <h3 class="font-semibold mb-1">🛠 Tools & Concepts</h3>
+                    <p>Git, GitHub, Data Structures</p>
+                </div>
             </div>
+        </div>
         </div>
     </div>
 </section>
 
-<!-- Projects Section -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="projects">
-    <h2 class="text-3xl font-bold mb-6">My Projects</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- About projects -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="projects">
+    <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">My Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {% for project in projects %}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
+            <div class="p-6 flex flex-col h-full justify-between">
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-2">{{ project.title }}</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description }}</p>
-                <a href="{{ project.link }}" class="text-blue-500 hover:underline">View Project on GitHub</a>
+                <a href="{{ project.link }}" target="_blank"
+                   class="mt-auto inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                    <i class="fab fa-github text-xl"></i> View on GitHub
+                </a>
             </div>
         </div>
         {% endfor %}

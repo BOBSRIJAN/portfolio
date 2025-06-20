@@ -7,3 +7,17 @@
 .animate-fade-in {
     animation: fade-in 1s ease-out;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #1e1053, #9b0f27);
+  border-radius: 10px;
+  animation: pulse 2s infinite alternate;
+}

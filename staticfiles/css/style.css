@@ -7,12 +7,6 @@
 .animate-fade-in {
     animation: fade-in 1s ease-out;
 }
-html, body {
-    height: 100%;
-    scroll-behavior: smooth;
-}
-/* style.css */
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -26,13 +20,4 @@ html, body {
   background: linear-gradient(45deg, #1e1053, #9b0f27);
   border-radius: 10px;
   animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-  0% {
-    background: linear-gradient(45deg, #ff7eb3, #0aa94f);
-  }
-  100% {
-    background: linear-gradient(45deg, #c8ff5a, #9c8d90);
-  }
 }
