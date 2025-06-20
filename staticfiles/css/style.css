@@ -7,3 +7,7 @@
 .animate-fade-in {
     animation: fade-in 1s ease-out;
 }
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+}

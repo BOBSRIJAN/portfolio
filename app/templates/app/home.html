@@ -2,37 +2,30 @@
 {% load static %}
 {% block content %}
 
-<section class="relative h-screen w-full overflow-hidden">
-    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-        <source src="{% static 'videos/background-video.mp4' %}" type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-    <div class="relative z-20 flex h-full items-center justify-center">
-        <div class="text-center px-4">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in">Welcome to My Portfolio</h1>
-            <p class="text-xl md:text-2xl text-white mb-6">I’m a passionate developer creating innovative solutions. 😎</p>
-            <a href="#projects" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-                View Projects
-            </a>
-        </div>
+<!-- Hero Section -->
+<section class="h-screen flex items-center justify-center relative z-20">
+    <div class="text-center px-4">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in">Welcome to My Portfolio</h1>
+        <p class="text-xl md:text-2xl text-white mb-6">I’m a passionate developer creating innovative solutions. 😎</p>
+        <a href="#projects" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+            View Projects
+        </a>
     </div>
 </section>
 
 <!-- About Section -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="about">
-    <div class="text-center mb-8">
-    </div>
     <h2 class="text-3xl font-bold mb-4">About Me</h2>
     <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Learn more about my journey and skills.</p>
-    <div class="flex flex-col md:flex-row items-center">
+    <div class="flex flex-col md:flex-row items-center mt-6 gap-6">
         <div class="md:w-1/2">
             <img src="{% static 'img/srijan10.jpg' %}" alt="Profile" class="rounded-lg shadow-lg">
         </div>
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:w-1/2">
             <p class="text-lg text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
-                I am a BCA student with a solid understanding of programming, software development, and database management. 
-                I enjoy solving real-world problems using technology and building efficient solutions. 
-                I am actively seeking an entry-level role or internship to apply my skills, contribute to innovative projects, 
+                I am a BCA student with a solid understanding of programming, software development, and database management.
+                I enjoy solving real-world problems using technology and building efficient solutions.
+                I am actively seeking an entry-level role or internship to apply my skills, contribute to innovative projects,
                 and grow as a competent IT professional.
             </p>
 
@@ -55,13 +48,13 @@
     <h2 class="text-3xl font-bold mb-6">My Projects</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for project in projects %}
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description }}</p>
-                    <a href="{{ project.link }}" class="text-blue-500 hover:underline">View Project on github</a>
-                </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description }}</p>
+                <a href="{{ project.link }}" class="text-blue-500 hover:underline">View Project on GitHub</a>
             </div>
+        </div>
         {% endfor %}
     </div>
 </section>
