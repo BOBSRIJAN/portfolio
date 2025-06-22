@@ -8,4 +8,5 @@ urlpatterns = [
     path('custom-admin/contacts/', views.admin_contacts, name='admin_contacts'),
     path('custom-admin/projects/edit/', views.admin_project_edit, name='admin_project_edit'),
     path('custom-admin/projects/delete/', views.admin_project_delete, name='admin_project_delete'),
+    path('health-check/', views.health_check, name='health_check'),
 ]

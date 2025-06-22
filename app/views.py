@@ -63,4 +63,5 @@ def admin_contacts(request):
     contacts = dbconf.Contact.find()
     return render(request, 'app/admin/AdminContacts.html', {'contacts': contacts})
 
-
+def health_check(request):
+    return HttpResponse("OK")
