@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .import dbconf
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import  logout
 from bson import ObjectId
 from datetime import datetime
 # Create your views here.
@@ -27,11 +29,11 @@ def contact(request):
         else:
             messages.error(request, 'Please fill out all fields...')
     return render(request, 'app/contact.html')
-
+@login_required
 def admin_panel(request):
     return render(request, 'app/admin/AdminPanel.html')
-
-def admin_projects(request):
+@login_required
+def admin_add_projects(request):
     if request.method == 'POST':
         project_id = request.POST.get('project_id')
         title = request.POST.get('title')
@@ -50,18 +52,60 @@ def admin_projects(request):
         else:
             messages.error(request, 'Please fill out all fields...')
     projects = dbconf.projects.find()
-    return render(request, 'app/admin/AdminProjects.html', {'projects': projects})
+    return render(request, 'app/admin/AdminAddProjects.html', {'projects': projects})
 
-
+@login_required
 def admin_project_edit(request):
-    return render(request, 'app/admin/AdminProjectEdit.html') 
+    if request.method == 'POST':
+        id = request.POST.get('pid')
+        if id:
+            return redirect('admin_project_edit_form', id)
+    projects = dbconf.projects.find()
+    return render(request, 'app/admin/AdminProjectEdit.html', {'projects': projects})
 
+@login_required
+def admin_project_edit_form(request, id):
+    project = dbconf.projects.find_one({'id': id})
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        github_link = request.POST.get('github_link')
+        
+        if title and description and github_link:
+            dbconf.projects.update_one(
+                {'id': id},
+                {'$set': {
+                    'title': title,
+                    'description': description,
+                    'link': github_link
+                }}
+            )
+            messages.success(request, 'Project updated successfully!')
+            return redirect('admin_project_edit')
+        else:
+            messages.error(request, 'Please fill out all fields...')
+    return render(request, 'app/admin/admin_project_edit_form.html', {'project': project})
+
+@login_required
 def admin_project_delete(request):
-    return render(request, 'app/admin/AdminProjectDelete.html')
+    if request.method == 'POST':
+        project_title = request.POST.get('title')
+        if project_title:
+            dbconf.projects.delete_one({'title': project_title})
+            messages.success(request, 'Project deleted successfully!')
+        else:
+            messages.error(request, 'Please provide a project title to delete...')
+    projects = dbconf.projects.find()
+    return render(request, 'app/admin/AdminProjectDelete.html', {'projects': projects})
 
+@login_required
 def admin_contacts(request):
     contacts = dbconf.Contact.find()
     return render(request, 'app/admin/AdminContacts.html', {'contacts': contacts})
+
+def logout_view(request):   
+    logout(request)
+    return redirect('home')
 
 def health_check(request):
     return HttpResponse("OK")

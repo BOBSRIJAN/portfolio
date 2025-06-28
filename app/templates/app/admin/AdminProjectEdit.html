@@ -1,11 +1,9 @@
 {% extends 'app/admin/AdminPanel.html' %}
 {% load static %}
-{% block title %}Project Edit{% endblock %}
 
 {% block content %}
-<!-- Project List -->
 <section>
-    <h2 class="text-xl font-semibold mb-4">Existing Projects</h2>
+    <h1 class="text-4xl font-extrabold mb-12 text-gray-800 dark:text-white text-center">Existing Projects</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for project in projects %}
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
@@ -16,7 +14,7 @@
                     <div class="mt-4 flex space-x-2">
                         <form method="POST">
                             {% csrf_token %}
-                            <input type="hidden" name="method" value={{ project.id }}>
+                            <input type="hidden" name="pid" value={{ project.id }}>
                             <button class="bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600 transition">
                                 Edit
                             </button> 
