@@ -10,5 +10,4 @@ urlpatterns = [
     path('custom-admin/projects/edit/<str:id>/', views.admin_project_edit_form, name='admin_project_edit_form'),
     path('custom-admin/projects/delete/', views.admin_project_delete, name='admin_project_delete'),
     path('custom-admin/logout/', views.logout_view, name='logout_view'),
-    path('health-check/', views.health_check, name='health_check'),
 ]

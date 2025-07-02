@@ -106,6 +106,3 @@ def admin_contacts(request):
 def logout_view(request):   
     logout(request)
     return redirect('home')
-
-def health_check(request):
-    return HttpResponse("OK")
