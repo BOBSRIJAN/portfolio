@@ -9,7 +9,7 @@ dotenv.load_dotenv()
 def SendMail(subject: str | None, name: str| None, user_email: str | None, user_message: str | None) -> str | None:
     FROM_EMAIL = os.getenv("FROM_EMAIL")
     HOST = os.getenv("HOST")
-    PORT = int(os.getenv("PORT"))
+    PORT = int(os.getenv("SMTP_PORT", 587))
     PASSWORD = os.getenv("PASSWORD")
     
     message = MIMEMultipart("alternative")
