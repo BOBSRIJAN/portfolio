@@ -25,7 +25,7 @@ def contact(request):
                 'message': message,
                 'timestamp': datetime.now()
             }
-            mail.SendMail("New Contact Message", name, email, message)
+            # mail.SendMail("New Contact Message", name, email, message) we change this later!
             dbconf.Contact.insert_one(contact_data)
             messages.success(request, 'Your message has been sent successfully!')
         else:
