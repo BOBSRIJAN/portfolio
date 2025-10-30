@@ -3,7 +3,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 def ping_server():
     try:
-        url = "https://srijan-dev.onrender.com/"
+        url = "https://mr-srijan-ray.onrender.com/"
         response = requests.get(url)
         print("Pinged:", response.status_code)
     except Exception as e:

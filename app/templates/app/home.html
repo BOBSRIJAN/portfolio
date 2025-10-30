@@ -28,71 +28,98 @@
     </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="relative bg-white/90 dark:bg-black/60 rounded-xl px-4 py-12 backdrop-blur-md">
-    <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">About Me</h2>
-    <p class="text-lg text-gray-600 dark:text-gray-400 mt-2 text-center">Learn more about my journey and skills.</p>
-    <div class="flex flex-col md:flex-row items-center mt-6 gap-6">
-        <div class="md:w-1/2">
-            <img src="{% static 'img/srijan10.jpg' %}" alt="Profile" class="rounded-lg shadow-lg">
-        </div>
-        <div class="md:w-1/2">
-            <p class="text-lg text-gray-900 dark:text-gray-300 text-justify leading-relaxed">
-                I am a BCA student with a solid understanding of programming, software development, and database management.
-                I enjoy solving real-world problems using technology and building efficient solutions.
-                I am actively seeking an entry-level role or internship to apply my skills, contribute to innovative projects,
-                and grow as a competent IT professional.
-            </p>
-            <div class="mt-10 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
-            <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                <i class="fas fa-code text-blue-600"></i> Skills
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <div>
-                    <h3 class="font-semibold mb-1">👨‍💻 Programming Languages</h3>
-                    <p>Python, Java, C</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-1">📚 Frameworks & Libraries</h3>
-                    <p>Django, Flask</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-1">🗄️ Databases</h3>
-                    <p>MongoDB, MySQL</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-1">🌐 Web Technologies</h3>
-                    <p>HTML, CSS, Bootstrap, TailwindCss</p>
-                </div>
-                <div class="sm:col-span-2">
-                    <h3 class="font-semibold mb-1">🛠 Tools & Concepts</h3>
-                    <p>Git, GitHub, Data Structures</p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
+<section id="about" class="relative max-w-7xl mx-auto px-6 py-20 bg-gradient-to-b from-white/70 via-gray-50/30 to-white/10 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-black/50 backdrop-blur-xl rounded-3xl border border-gray-200/30 dark:border-gray-700/40 shadow-xl">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent mb-4 tracking-tight">
+      About Me
+    </h2>
+    <p class="text-lg text-gray-200 dark:text-gray-100">
+      Learn more about my journey and skills.
+    </p>
+  </div>
 
-<!-- About projects -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="projects">
+  <div class="flex flex-col md:flex-row items-center gap-12">
     
-    <h2 class="text-4xl font-bold text-center text-white mb-12">My Projects</h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {% for project in projects %}
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
-            <div class="p-6 flex flex-col h-full justify-between">
-                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-2">{{ project.title }}</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description }}</p>
-                <a href="{{ project.link }}" target="_blank"
-                   class="mt-auto inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-                    <i class="fab fa-github text-xl"></i> View on GitHub
-                </a>
-            </div>
-        </div>
-        {% endfor %}
+    <div class="md:w-1/2 relative group">
+      <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+      <img src="{% static 'img/srijan10.jpg' %}" alt="Profile" 
+           class="relative rounded-3xl w-full shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
     </div>
+
+    <div class="md:w-1/2 space-y-6">
+      <p class="text-lg text-gray-200 dark:text-gray-100 leading-relaxed text-justify">
+        I am a BCA student with a strong understanding of programming, software development, and database management.
+        I love solving real-world problems using technology and creating efficient, scalable solutions.
+        Currently, I’m seeking an entry-level role or internship to apply my knowledge, contribute to innovative projects,
+        and continue growing as a passionate IT professional.
+      </p>
+
+      <div class="relative bg-gradient-to-br from-white/80 to-gray-50/30 dark:from-gray-800/70 dark:to-gray-900/40 backdrop-blur-md p-8 rounded-3xl border border-gray-200/40 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <i class="fas fa-code text-blue-600 dark:text-blue-400 text-2xl"></i>
+          Skills
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 text-gray-700 dark:text-gray-300 text-lg">
+          <div>
+            <h4 class="font-semibold mb-1">👨‍💻 Programming Languages</h4>
+            <p class="text-gray-600 dark:text-gray-400">Python, Java, C</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">📚 Frameworks & Libraries</h4>
+            <p class="text-gray-600 dark:text-gray-400">Django, Flask</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">🗄️ Databases</h4>
+            <p class="text-gray-600 dark:text-gray-400">MongoDB, MySQL</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">🌐 Web Technologies</h4>
+            <p class="text-gray-600 dark:text-gray-400">HTML, CSS, Bootstrap, TailwindCSS, JavaScript</p>
+          </div>
+          <div class="sm:col-span-2">
+            <h4 class="font-semibold mb-1">🛠 Tools & Concepts</h4>
+            <p class="text-gray-600 dark:text-gray-400">Git, GitHub, Data Structures, DBMS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+
+<section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <h2 class="text-5xl font-extrabold text-center mb-14 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent tracking-tight">
+    My Projects
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    {% for project in projects %}
+    <div
+      class="group relative bg-gradient-to-br from-white/80 to-gray-50/30 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02]">
+      
+      <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
+
+      <div class="relative p-8 flex flex-col h-full justify-between z-10">
+        <div>
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3 tracking-tight group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300">
+            {{ project.title }}
+          </h3>
+          <p class="text-gray-100 dark:text-gray-100 leading-relaxed mb-6">
+            {{ project.description }}
+          </p>
+        </div>
+
+        <a href="{{ project.link }}" target="_blank"
+          class="inline-flex items-center gap-2 mt-auto text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300">
+          <i class="fab fa-github text-2xl group-hover:scale-110 transform transition-transform duration-300"></i>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
 
 {% endblock %}

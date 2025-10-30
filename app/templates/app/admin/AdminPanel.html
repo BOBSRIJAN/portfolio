@@ -12,52 +12,70 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="text-4xl font-extrabold mb-12 text-gray-800 dark:text-white text-center">Admin Dashboard</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
-  <a href="{% url 'admin_add_projects' %}" class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:scale-105 duration-300">
-    <div class="flex items-center space-x-4 mb-3">
-      <div class="bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300 p-2 rounded-full">
+<main class="flex-grow max-w-7xl mx-auto px-4 pt-8 pb-12">
+  <h1 class="text-5xl font-extrabold mb-12 text-gray-900 dark:text-white text-center tracking-tight">Admin Dashboard</h1>
+<div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
+  <!-- Card Template -->
+  <a href="{% url 'admin_add_projects' %}" 
+     class="group relative bg-gradient-to-br from-white/70 to-gray-50/30 dark:from-gray-800/70 dark:to-gray-900/50 backdrop-blur-lg p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="bg-gradient-to-tr from-blue-500 to-indigo-500 p-3 rounded-2xl shadow-inner text-white group-hover:scale-110 transition-transform duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M12 4v16m8-8H4" />
         </svg>
       </div>
-      <h2 class="text-xl font-semibold">Add Projects</h2>
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Add Projects</h2>
     </div>
-    <p class="text-gray-600 dark:text-gray-400">Add projects to your portfolio.</p>
+    <p class="text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+      Add new projects to your portfolio with ease.
+    </p>
   </a>
-  <a href="{% url 'admin_project_edit' %}" class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:scale-105 duration-300">
-    <div class="flex items-center space-x-4 mb-3">
-      <div class="bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-300 p-2 rounded-full">
+
+  <a href="{% url 'admin_project_edit' %}" 
+     class="group relative bg-gradient-to-br from-white/70 to-gray-50/30 dark:from-gray-800/70 dark:to-gray-900/50 backdrop-blur-lg p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="bg-gradient-to-tr from-yellow-400 to-orange-400 p-3 rounded-2xl shadow-inner text-white group-hover:scale-110 transition-transform duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M11 5h10M11 9h7M11 13h4M3 17h18" />
         </svg>
       </div>
-      <h2 class="text-xl font-semibold">Edit Projects</h2>
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Edit Projects</h2>
     </div>
-    <p class="text-gray-600 dark:text-gray-400">Update or manage existing projects.</p>
+    <p class="text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+      Update, refine, or manage your portfolio projects.
+    </p>
   </a>
-  <a href="{% url 'admin_project_delete' %}" class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:scale-105 duration-300">
-    <div class="flex items-center space-x-4 mb-3">
-      <div class="bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 p-2 rounded-full">
+
+  <a href="{% url 'admin_project_delete' %}" 
+     class="group relative bg-gradient-to-br from-white/70 to-gray-50/30 dark:from-gray-800/70 dark:to-gray-900/50 backdrop-blur-lg p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="bg-gradient-to-tr from-red-500 to-pink-500 p-3 rounded-2xl shadow-inner text-white group-hover:scale-110 transition-transform duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M6 18L18 6M6 6l12 12" />
         </svg>
       </div>
-      <h2 class="text-xl font-semibold">Delete Projects</h2>
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Delete Projects</h2>
     </div>
-    <p class="text-gray-600 dark:text-gray-400">Remove projects from the portfolio.</p>
+    <p class="text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+      Permanently remove projects from your portfolio.
+    </p>
   </a>
-  <a href="{% url 'admin_contacts' %}" class="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:scale-105 duration-300">
-    <div class="flex items-center space-x-4 mb-3">
-      <div class="bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300 p-2 rounded-full">
+
+  <a href="{% url 'admin_contacts' %}" 
+     class="group relative bg-gradient-to-br from-white/70 to-gray-50/30 dark:from-gray-800/70 dark:to-gray-900/50 backdrop-blur-lg p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="bg-gradient-to-tr from-green-500 to-emerald-500 p-3 rounded-2xl shadow-inner text-white group-hover:scale-110 transition-transform duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M21 10a9 9 0 11-18 0 9 9 0 0118 0z" />
           <path d="M12 14l-3-3m0 0l3-3m-3 3h12" />
         </svg>
       </div>
-      <h2 class="text-xl font-semibold">View Contacts</h2>
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">View Contacts</h2>
     </div>
-    <p class="text-gray-600 dark:text-gray-400">Check submitted contact forms.</p>
+    <p class="text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+      Browse and respond to contact form submissions.
+    </p>
   </a>
 </div>
+</main>
 {% endblock %}

@@ -16,33 +16,44 @@
         <a href="/custom-admin/" class="block text-gray-800 dark:text-gray-200 hover:text-blue-500">Admin</a>
         {% endblock %}
 {% block content %}
-  <section class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-  <div class="bg-white/90 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-lg p-8">
-    <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">Contact Me</h2>
-    <form method="POST" class="space-y-6">
+
+<section class="relative max-w-3xl mx-auto px-6 py-20 z-10">
+  <div class="bg-gradient-to-br from-white/80 via-gray-50/40 to-white/10 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-black/40 backdrop-blur-xl rounded-3xl border border-gray-200/40 dark:border-gray-700/50 shadow-2xl p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-blue-500/10">
+    <h2 class="text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent tracking-tight">
+      Contact Me
+    </h2>
+    <form method="POST" class="space-y-8">
       {% csrf_token %}
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-        <input type="text" name="name" id="name"
-          class="mt-1 p-2 w-full border rounded-md bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          required>
+      <div class="relative">
+        <input type="text" name="name" id="name" placeholder=" " required
+          class="peer w-full p-4 rounded-xl bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-transparent focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300">
+        <label for="name"
+          class="absolute left-4 -top-2.5 text-sm font-semibold text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-blue-600 dark:peer-focus:text-blue-400 peer-focus:text-sm peer-focus:bg-white dark:peer-focus:bg-gray-800">
+          Name
+        </label>
       </div>
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-        <input type="email" name="email" id="email"
-          class="mt-1 p-2 w-full border rounded-md bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          required>
+      <div class="relative">
+        <input type="email" name="email" id="email" placeholder=" " required
+          class="peer w-full p-4 rounded-xl bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-transparent focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all duration-300">
+        <label for="email"
+          class="absolute left-4 -top-2.5 text-sm font-semibold text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-indigo-600 dark:peer-focus:text-indigo-400 peer-focus:text-sm peer-focus:bg-white dark:peer-focus:bg-gray-800">
+          Email
+        </label>
       </div>
-      <div>
-        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-        <textarea name="message" id="message" rows="4"
-          class="mt-1 p-2 w-full border rounded-md bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          required></textarea>
+      <div class="relative">
+        <textarea name="message" id="message" rows="5" placeholder=" " required
+          class="peer w-full p-4 rounded-xl bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-transparent focus:outline-none focus:ring-4 focus:ring-purple-500/30 focus:border-purple-500 transition-all duration-300"></textarea>
+        <label for="message"
+          class="absolute left-4 -top-2.5 text-sm font-semibold text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 px-2 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-purple-600 dark:peer-focus:text-purple-400 peer-focus:text-sm peer-focus:bg-white dark:peer-focus:bg-gray-800">
+          Message
+        </label>
       </div>
       <button type="submit"
-        class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition font-semibold">Send
-        Message</button>
+        class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 text-white font-semibold tracking-wide shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+        Send Message
+      </button>
     </form>
   </div>
 </section>
+
 {% endblock %}

@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponse
-from .import dbconf
+from django.shortcuts import render, redirect
+from .import dbconf, mail
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import  logout
@@ -16,6 +16,7 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
+        
         if name and email and message:
             contact_data = {
                 'id': str(ObjectId()),
@@ -24,14 +25,17 @@ def contact(request):
                 'message': message,
                 'timestamp': datetime.now()
             }
+            mail.SendMail("New Contact Message", name, email, message)
             dbconf.Contact.insert_one(contact_data)
             messages.success(request, 'Your message has been sent successfully!')
         else:
             messages.error(request, 'Please fill out all fields...')
     return render(request, 'app/contact.html')
+
 @login_required
 def admin_panel(request):
     return render(request, 'app/admin/AdminPanel.html')
+
 @login_required
 def admin_add_projects(request):
     if request.method == 'POST':
